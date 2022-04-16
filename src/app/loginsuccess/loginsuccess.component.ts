@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenInterceptorService} from "../token-interceptor.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-loginsuccess',
@@ -7,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginsuccessComponent implements OnInit {
 
-  constructor() { }
 
+  constructor(private ts:TokenInterceptorService, private _router:Router) { }
+
+  logout(){
+   // sessionStorage.removeItem("token");
+    this._router.navigate(['/']);
+  }
   ngOnInit(): void {
   }
 

@@ -23,9 +23,9 @@ export class LoginComponent implements OnInit {
     this._service.loginUserFromRemote(this.user).subscribe(
       data => {
         console.log(data);
-        document.cookie='token='+"bearer "+data.accessToken;
+        document.cookie='token='+data.accessToken;
 
-        sessionStorage.setItem('token',"bearer "+data.accessToken);
+        sessionStorage.setItem('token',data.accessToken);
         this._router.navigate((['/loginsuccess']))
         },
       error =>{
